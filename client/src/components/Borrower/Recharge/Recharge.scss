@@ -1,0 +1,112 @@
+.radiolist__item {
+  display: block;
+  cursor: auto;
+}
+
+.radiolist__body {
+  display: none;
+}
+
+.radiolist__control-input:checked ~ .radiolist__body {
+  display: block;
+}
+
+.radiolist .custom-control-indicator {
+  user-select: auto;
+  pointer-events: auto;
+}
+
+.radiolist label {
+  cursor: pointer;
+}
+
+.radiolist .table-sm thead th {
+  border-bottom-width: 1px;
+}
+
+.radiolist .table-sm td,
+.radiolist .table-sm th {
+  padding: 6px 10px;
+}
+
+.radiolist
+  .custom-radio
+  .custom-control-input:checked
+  ~ .custom-control-indicator {
+  background-color: #ed522e;
+  border: 1px solid #aaa;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+.custom-control-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.radiolist
+  .custom-radio
+  .custom-control-input:checked
+  ~ .custom-control-indicator {
+  background-color: #0069d9;
+  border: 1px solid #aaa;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-indicator {
+  background: none;
+  border-color: #ed522e;
+  box-shadow: none;
+}
+
+.radiolist .custom-control-indicator {
+  user-select: auto;
+  pointer-events: auto;
+}
+
+.custom-radio .custom-control-indicator {
+  background-color: #fff;
+  border: 2px solid #ddd;
+}
+
+.custom-radio .custom-control-indicator {
+  border-radius: 50%;
+}
+
+.radiolist label {
+  cursor: pointer;
+}
+
+.custom-control-indicator {
+  position: absolute;
+  top: 0.25rem;
+  left: 0;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+  user-select: none;
+  background-color: #ddd;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 50% 50%;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}

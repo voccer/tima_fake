@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include("./layouts/head")%>
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <%-include("./layouts/menu")%>
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <%-include("./layouts/header")%>
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <h3 class="title-5 m-b-35">User management</h3>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="property">
+                                                <option selected="selected">All Properties</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">3 Days</option>
+                                                <option value="">1 Week</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <button class="au-btn-filter">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                                            <select class="js-select2" name="type">
+                                                <option selected="selected">Export</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Type of Account </th>
+                                                <th>CMND</th>
+                                                <th>Date Of Birth</th>
+                                                <th>Gender</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <% if (locals.profiles) for(let i=0;i<total; i++){ var profile = profiles[i] %>
+                                            <%if(profile.user == null ) continue;%>
+                                            <tr class="tr-shadow">
+                                                <td>
+                                                    <label class="au-checkbox">
+                                                        <input type="checkbox">
+                                                        <span class="au-checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td><%= profile.user.fullname %></td>
+                                                <td>
+                                                    <span class="block-email"><%= profile.user.phone %></span>
+                                                </td>
+                                                <td><%= profile.user.typeOfAcc%></td>
+                                                <td><%= profile.CMND%></td>
+                                                <td><%= profile.DateOfBirth%></td>
+                                                <td><%= profile.gender%></td>
+
+                                                <td><%= profile.email%></td>
+
+                                            </tr>
+
+                                            <% } %>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE -->
+                            </div>
+                        </div>
+
+                        <%-include("./layouts/footer")%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Main JS-->
+    <%-include("./layouts/javascript")%>
+    </div>
+</body>
+
+</html>
+<!-- end document-->

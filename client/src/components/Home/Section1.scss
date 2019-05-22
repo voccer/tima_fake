@@ -1,0 +1,162 @@
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.single-features-area {
+  position: relative;
+  z-index: 1;
+}
+
+.single-features-area h6 {
+  font-size: 18px;
+  color: #6e6e6e;
+  margin-bottom: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.single-features-area img {
+  margin-bottom: 15px;
+}
+
+.single-features-area h5 {
+  font-size: 18px;
+  margin-bottom: 0;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .single-features-area h5 {
+    font-size: 15px;
+  }
+}
+
+.single-features-area:hover h5 {
+  color: #ffbb38;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .section-heading h2 {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .section-heading h2 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .section-heading h2 {
+    font-size: 24px;
+  }
+}
+
+.section-heading.white .line {
+  background-color: #ffffff;
+}
+
+.section-heading.white p,
+.section-heading.white h2 {
+  color: #ffffff;
+}
+
+.section-heading.text-center .line {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mt-50 {
+  margin-top: 50px !important;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+p {
+  color: #838383;
+  font-size: 15px;
+  line-height: 2;
+  font-weight: 400;
+}
+
+ul,
+ol {
+  margin: 0;
+}
+
+ul li,
+ol li {
+  list-style: none;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.credit-btn {
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  background-color: #ffbb38;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 175px;
+  height: 48px;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 0 30px;
+  font-size: 14px;
+  line-height: 48px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.credit-btn:hover,
+.credit-btn:focus {
+  font-size: 14px;
+  font-weight: 700;
+  background-color: #003679;
+  color: #ffffff;
+}
+
+.credit-btn.btn-2 {
+  background-color: #003679;
+  color: #ffffff;
+}
+
+.credit-btn.btn-2:hover,
+.credit-btn.btn-2:focus {
+  background-color: #ffbb38;
+  color: #ffffff;
+}
+
+.credit-btn.btn-3 {
+  background-color: transparent;
+  color: #003679;
+  border: 2px solid #003679;
+  line-height: 44px;
+}
+
+.credit-btn.btn-3:hover,
+.credit-btn.btn-3:focus {
+  border: 2px solid #003679;
+  background-color: #003679;
+  color: #ffffff;
+}

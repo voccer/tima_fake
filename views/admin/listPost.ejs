@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%-include("./layouts/head")%>
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <%-include("./layouts/menu")%>
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <%-include("./layouts/header")%>
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <h3 class="title-5 m-b-35">data table</h3>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="property">
+                                                <option selected="selected">All Properties</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">3 Days</option>
+                                                <option value="">1 Week</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <button class="au-btn-filter">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <a href="/api/sells/">
+                                            <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                                <i class="zmdi zmdi-plus"></i>add item</button></a>
+                                    </div>
+                                </div>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Người đăng</th>
+                                                <th>Giá khởi điểm</th>
+                                                <th>Giá hiện tại</th>
+                                                <th>Chứng minh nhân dân</th>
+                                                <th>Discount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <% if (locals.posts) for(let i=0;i < total; i++){ var post = posts[i] %>
+                                            <tr class="tr-shadow">
+
+                                                <td><%= post.user.fullname %></td>
+                                                <td><%= post.price.initial %></td>
+
+                                                <td><%= post.price.initial * post.price.discount %></td>
+                                                <td><%= post.personalInfo.CMND %></td>
+
+                                                <td style="display: flex">
+                                                    <form action="/admin/schedule/decreaseDiscount" method="post">
+                                                        <button type="submit" style="border: none;
+                                                        background: gray;
+                                                        border-radius: 11%;
+                                                        padding: 4px;
+                                                        margin: 0 4px;" id="decrease">Giảm </button>
+
+                                                    </form>
+
+
+                                                    <%=Math.ceil(post.price.discount) * 100%>%
+
+                                                    <form action="" method="post">
+
+                                                        <button type="submit" style="border: none; background:
+                                                    greenyellow; border-radius: 11%; padding: 4px; margin: 0
+                                                    4px;" id="increase">Tăng</button>
+                                                    </form>
+
+                                                </td>
+                                                <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE -->
+                            </div>
+                        </div>
+
+                        <%-include("./layouts/footer")%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Main JS-->
+    <%-include("./layouts/javascript")%>
+    </div>
+</body>
+
+<script>
+    function decrease_fuc() {
+
+    }
+</script>
+
+
+</html>
+<!-- end document-->

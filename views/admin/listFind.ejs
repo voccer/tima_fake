@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include("./layouts/head")%>
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <%-include("./layouts/menu")%>
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <%-include("./layouts/header")%>
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE -->
+                                <h3 class="title-5 m-b-35">data table</h3>
+                                <div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="property">
+                                                <option selected="selected">All Properties</option>
+                                                <option value="">Option 1</option>
+                                                <option value="">Option 2</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">3 Days</option>
+                                                <option value="">1 Week</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <button class="au-btn-filter">
+                                            <i class="zmdi zmdi-filter-list"></i>filters</button>
+                                    </div>
+                                    <div class="table-data__tool-right">
+                                        <a href="/api/finds/">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <i class="zmdi zmdi-plus"></i>add item</button></a>
+                                    </div>
+                                </div>
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                
+                                                <th>Người đăng</th>
+                                                <th>Hình thức</th>
+                                                <th>From</th>
+                                                <th>To</th>
+                                                <th>Status</th>
+                                                <th>CARD</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            
+                                            <% if (locals.finds) for(let i=0;i < total; i++){ var find = finds[i] %>
+                                            <tr class="tr-shadow">
+                                                
+                                                <td><%= find.user.name %></td>
+                                                <% if(find.hinhThuc==="sell"){ %>
+                                                    <td class="desc">MUA</td>
+                                                <% }else{ %>
+                                                    <td class="desc">THUÊ</td>
+                                                    <% } %>  
+                                                <td class="desc"><%= find.timePost[0].fromPost %></td>
+                                                <td class="desc"><%= find.timePost[0].toPost %></td>
+                                                <td>
+                                                    <span class="status--process"><%= find.state %></span>
+                                                </td>
+                                                <td class="desc"><%= find.cardCash.menhGia %></td>
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <% if(find.state==="NEW"){ %>
+                                                            <form action="post/<%= find.id %>" method="post">
+                                                                <button class="item" type="submit" data-toggle="tooltip" data-placement="top" title="Post">
+                                                                    <i class="zmdi zmdi-shield-check"></i>
+                                                                </button>
+                                                        </form>
+                                                        <% }else if(find.state==="STORAGE"){ %>
+                                                            <form action="new/<%= find.id %>" method="post">
+                                                                <button class="item" type="submit" data-toggle="tooltip" data-placement="top" title="New">
+                                                                    <i class="zmdi zmdi-chart-donut"></i>>
+                                                                </button>
+                                                        </form>
+                                                            <form action="post/<%= find.id %>" method="post">
+                                                                <button class="item" type="submit" data-toggle="tooltip" data-placement="top" title="Post">
+                                                                    <i class="zmdi zmdi-shield-check"></i>
+                                                                </button>
+                                                        </form>
+                                                        
+                                                        <% }else{ %>
+                                                            <form action="storage/<%= find.id %>" method="post">
+                                                                <button class="item" type="submit" data-toggle="tooltip" data-placement="top" title="Storage">
+                                                                    <i class="zmdi zmdi-archive"></i>
+                                                                </button>
+                                                        </form>
+                                                        
+                                                        <% } %>
+                                                            <form action="delete/<%= find.id %>" method="post">
+                                                                    <button class="item" type="submit" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                            <i class="zmdi zmdi-delete"></i>
+                                                                    </button>
+                                                            </form>
+                                                        </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <% } %>                                       
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE -->
+                            </div>
+                        </div>
+                        
+                        <%-include("./layouts/footer")%>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Main JS-->
+    <%-include("./layouts/javascript")%>
+</div>
+</body>
+
+</html>
+<!-- end document-->

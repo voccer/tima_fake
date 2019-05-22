@@ -1,0 +1,39 @@
+{
+  "name": "tima.vn-clone",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server1.js",
+    "dev": "nodemon server1.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "dependencies": {
+    "bcryptjs": "~2.4.3",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.14.0",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "^1.4.4",
+    "debug": "~4.1.1",
+    "ejs": "~2.6.1",
+    "express": "~4.17.0",
+    "express-form-data": "^2.0.8",
+    "gravatar": "^1.8.0",
+    "http-errors": "~1.7.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.9",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.0"
+  },
+  "engines": {
+    "node": "v12.2.0"
+  }
+}

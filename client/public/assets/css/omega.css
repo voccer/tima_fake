@@ -1,0 +1,135 @@
+#omega {
+  padding: 0 0em;
+}
+#omega-button {
+  display: none;
+}
+#omega-content nav ul {
+  display: inline-block;
+  margin-right: 2em;
+}
+#omega-content nav ul li a {
+  padding: 0 0.5em;
+}
+#omega-content nav ul li,
+#omega-content #logo,
+#omega-content nav {
+  display: inline-block;
+}
+.omega-links {
+  display: inline-block;
+}
+#omega-content {
+  float: right;
+}
+#omega-overlay {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#omega-sidebar {
+  display: none;
+  position: fixed;
+  width: 80%;
+  z-index: 20;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease-in-out;
+}
+#omega-sidebar-header {
+  background-image: url(../img/bg.png);
+  background-size: cover;
+  height: 110px;
+}
+#omega-sidebar-body {
+  padding: 1em;
+}
+#omega-sidebar-body nav ul li {
+  list-style: none;
+  display: block;
+}
+#omega-sidebar-body nav ul li:before {
+  content: ' ';
+  font-family: 'Font Awesome 5 Free';
+  display: inline-block;
+  vertical-align: middle;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  margin-bottom: 4px;
+}
+#omega-sidebar-body nav ul li:first-child:before {
+  content: '\f015';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+#omega-sidebar-body nav ul li:nth-child(2):before {
+  content: '\f021';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+#omega-sidebar-body nav ul li:nth-child(3):before {
+  content: '\f15c';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+#omega-sidebar-body nav ul li:nth-child(4):before {
+  content: '\f2bb';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+#omega-sidebar-body nav ul li:nth-child(5):before {
+  content: '\f562';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+#omega-sidebar-body nav ul li:nth-child(6):before {
+  content: '\f2a0';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+#omega-sidebar-body nav ul li a {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5em;
+  color: #606c76;
+}
+#omega-sidebar-body nav ul li a:hover {
+  color: #9b4dca;
+}
+#omega-sidebar-body .omega-links a {
+  display: block;
+  margin-bottom: 1em;
+}
+
+@media only screen and (max-width: 850px) {
+  #omega-content {
+    display: none;
+  }
+  #omega-button {
+    float: right;
+    cursor: pointer;
+  }
+  .omega-links {
+    display: block;
+    margin-top: 2em;
+  }
+  #omega-button,
+  #omega-sidebar,
+  .omega-activated #omega-overlay {
+    display: block;
+  }
+  .omega-activated #omega-sidebar {
+    transform: translateX(0);
+  }
+}
