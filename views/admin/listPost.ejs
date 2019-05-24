@@ -61,17 +61,19 @@
                                         </thead>
                                         <tbody>
 
-                                            <% if (locals.posts) for(let i=0;i < total; i++){ var post = posts[i] %>
+
+                                            <% if (locals.posts) for(let i=0;i < 4; i++){ var post = posts[i] %>
                                             <tr class="tr-shadow">
 
                                                 <td><%= post.user.fullname %></td>
                                                 <td><%= post.price.initial %></td>
 
-                                                <td><%= post.price.initial * post.price.discount %></td>
+                                                <td><%= parseFloat( post.price.initial * post.price.discount).toFixed(1)  %></td>
                                                 <td><%= post.personalInfo.CMND %></td>
 
                                                 <td style="display: flex">
-                                                    <form action="/admin/schedule/decreaseDiscount" method="post">
+                                                    <form action="/admin/schedule/decreaseDiscount/<%=post._id%>"
+                                                        method="post">
                                                         <button type="submit" style="border: none;
                                                         background: gray;
                                                         border-radius: 11%;
@@ -80,10 +82,10 @@
 
                                                     </form>
 
+                                                    <%= parseFloat(post.price.discount).toFixed(2)%>
 
-                                                    <%=Math.ceil(post.price.discount) * 100%>%
 
-                                                    <form action="" method="post">
+                                                    <form action="/admin/schedule/increaseDiscount/<%=post._id%>" method="post">
 
                                                         <button type="submit" style="border: none; background:
                                                     greenyellow; border-radius: 11%; padding: 4px; margin: 0

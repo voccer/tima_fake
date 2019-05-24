@@ -5,23 +5,36 @@ const User = require("../../../models/user.model");
 //const Authentication = require("../../../middlewares/Authentication");
 var currentDiscount = 0;
 
-router.post("/decreaseDiscount/:id", (req, res) => {
-  Post.find(req.params.id)
-    .populate("user")
-    .then(post => {
-      const discount = post.price.discount;
-      post.price.discount = discount === 0.1 ? 0 : discount - 0.1;
-      post.save().then(post => {
 
-        return res.render("admin/listPost", {
-          posts: post,
-          total: post.length
-        })
-      })
-    })
-    .catch(err =>
-      res.status(404).json({ noFindFounds: "No find posts found." })
-    );
+
+router.post("/decreaseDiscount/:id", async (req, res) => {
+
+  // console.log(req.params.id);
+
+  await Post.findById(req.params.id).then(post => {
+    const discount = post.price.discount;
+    post.price.discount = discount === 0.1 ? 0 : discount - 0.1;
+    post.save();
+  });
+
+  return res.redirect("/admin/schedule/post");
+
+
+});
+
+router.post("/increaseDiscount/:id", async (req, res) => {
+
+  // console.log(req.params.id);
+
+  await Post.findById(req.params.id).then(post => {
+    const discount = post.price.discount;
+    post.price.discount = discount === 1 ? 0 : discount + 0.1;
+    post.save();
+  });
+
+
+  return res.redirect("/admin/schedule/post");  
+
 });
 
 router.get("/post", (req, res, next) => {
